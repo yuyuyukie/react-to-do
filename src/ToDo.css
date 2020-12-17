@@ -1,0 +1,167 @@
+/* general */
+li {
+  list-style-type: none;
+}
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0px;
+}
+
+body {
+  margin: 0rem;
+  font-size: 16px;
+  color: #313131;
+  background-color: rgb(216, 253, 242);
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+#bodyWrapper {
+  display: flex;
+  width: auto;
+  height: 100vh;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: rgb(127, 255, 212);
+  border: solid rgb(26, 179, 140);
+  border-width: 2px 0px;
+}
+#title {
+  margin-left: 1rem;
+  height: inherit;
+  font-weight: 300;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+#headerNav {
+  margin-left: auto;
+}
+#headerNav ul {
+  display: flex;
+}
+#headerNav {
+  margin-right: 1rem;
+  transition: linear;
+}
+
+#headerNav i {
+  color: #708090;
+  font-size: 130%;
+}
+.headerNavDetail {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 20px;
+  color: #204050;
+}
+/* description texts */
+#description {
+  padding-left: 1rem;
+  transition-property: display, height;
+  transition-duration: 0.5s;
+  border: 1px solid rgb(100 76 255);
+  border-radius: 3px;
+  background-color: rgb(127, 255, 212);
+}
+#description li {
+  list-style-type: disc;
+  margin-left: 3rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin: 0.2em 0;
+}
+
+@media (max-width: 600px) {
+  .headerNavDetail {
+    display: none;
+  }
+}
+
+*::before,
+*::after,
+* {
+  box-sizing: border-box;
+}
+
+/* main */
+.main {
+  margin: 5px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* todoGenerator */
+#todoGenerator,
+#container {
+  margin-bottom: 5px;
+  padding: 0;
+  border: 1px solid rgb(100 76 255);
+  border-radius: 3px;
+  background-color: rgb(181, 240, 255);
+}
+#deleteBtn {
+  margin-left: auto;
+}
+
+#container li:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#container li[isDone="true"] {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* todoController */
+#todoController {
+  margin-bottom: 0px;
+  display: flex;
+}
+#showStatus > li:hover,
+#clearDone:hover,
+#headerNav li:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+#showStatus {
+  display: flex;
+}
+#showStatus > li {
+  margin-right: 0.5rem;
+}
+
+#clearDone {
+  margin-left: auto;
+}
+
+/* having status */
+.hidden {
+  display: none;
+}
+.selected {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* footer */
+footer {
+  display: flex;
+  margin-block-start: auto;
+  background-color: aquamarine;
+  border: solid rgb(26, 179, 140);
+  border-width: 1px 0px;
+  width: 100%;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+footer i {
+  font-size: 120%;
+}

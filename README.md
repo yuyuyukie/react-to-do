@@ -1,3 +1,24 @@
+# 実装機能
+
+- Date.now()で簡易的な key を生成。
+- Controller 部で完了状態によるフィルター
+- チェックボックス以外でも Done を切り替え可能
+- Enter キーで ToDo 追加可能
+- タスク削除機能、完了タスク削除機能
+
+## 構想にはあるが未実装
+
+- ローカルストレージ（Flex-To-Do には実装済み）
+
+# 階層メモ
+
+- ToDo
+  - Header
+  - Description
+  - Generator
+  - Controller
+  - Container
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
