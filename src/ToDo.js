@@ -13,17 +13,34 @@ import "./ToDo.css";
 // Container完了関係 OKスタイリングまだ（doneContainerを
 // 消したためfilterでソートしたりスタイリング必要 OK
 
+// 入力欄が空白時のメッセージ
+const inputMessage = "Enterキーでも追加できます。";
+
 class ToDo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: "",
+      input: inputMessage,
       todoList: [],
       showDescription: false,
       showStatus: "showAll", //["showAll", "showActive", "showDone"]
     };
     // bind section
     this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+  turnMessageOn(e) {
+    if (this.state.input === "") {
+      this.setState({
+        input: inputMessage,
+      });
+    }
+  }
+  turnMessageOff(e) {
+    if (this.state.input === inputMessage) {
+      this.setState({
+        input: "",
+      });
+    }
   }
 
   // Enterで追加用。addToDoで処理
@@ -47,8 +64,10 @@ class ToDo extends React.Component {
   }
   addToDo(e) {
     const state = this.state;
+    // 初期メッセージなら空白を挿入
+    const todoText = state.input === inputMessage ? "" : state.input;
     const todoObj = {
-      value: state.input,
+      value: todoText,
       isDone: false,
       key: Date.now().toString(),
     };
@@ -152,6 +171,8 @@ class ToDo extends React.Component {
           onInputChange={this.handleInputChange.bind(this)}
           addToDo={this.addToDo.bind(this)}
           clearForm={this.clearForm.bind(this)}
+          turnMessageOn={this.turnMessageOn.bind(this)}
+          turnMessageOff={this.turnMessageOff.bind(this)}
         />
         <Controller
           handleShowStatusClick={this.handleShowStatusClick.bind(this)}
@@ -228,7 +249,15 @@ class Generator extends React.Component {
         <input
           type="text"
           value={this.props.inputValue}
+          style={
+            // 初期メッセージなら薄くする
+            this.props.inputValue === inputMessage
+              ? { color: "rgb(150,150,150)" }
+              : {}
+          }
           onChange={this.props.onInputChange}
+          onFocus={this.props.turnMessageOff}
+          onBlur={this.props.turnMessageOn}
         />
         <button id="ctdAdd" onClick={this.props.addToDo}>
           追加
