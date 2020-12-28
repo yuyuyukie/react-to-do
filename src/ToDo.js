@@ -99,6 +99,7 @@ class ToDo extends React.Component {
     // DeleteBtn Iはファビコン
     if (target.id === "deleteBtn" || target.className === "fa fa-close") {
       let modifiedToDoList = newToDoList.slice();
+      // eslint-disable-next-line
       let deletedToDo = modifiedToDoList.splice(index, 1);
       this.setState((state) => {
         return {
@@ -116,6 +117,7 @@ class ToDo extends React.Component {
   }
   handleShowStatusClick(e) {
     const instructionID = e.target.id;
+    // eslint-disable-next-line
     const showStatus = this.state.showStatus;
     if (instructionID.match(/showAll|showActive|showDone/)) {
       this.setState((state) => {
